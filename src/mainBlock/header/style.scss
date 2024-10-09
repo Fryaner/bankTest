@@ -1,0 +1,139 @@
+.header {
+    display: grid;
+    grid-template-columns: 1fr 0fr 0fr;
+    grid-template-areas:
+    "title search settings"
+    "title search settings";
+    background-color: white;
+    align-items: center;
+    gap: 30px;
+    padding: 20px 40px;
+
+    &__menu {
+        grid-area: menuBurger;
+        display: none;
+    }
+
+    &__title {
+        grid-area: title;
+
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 33.89px;
+            color: #343C6A;
+        }
+    }
+
+    &__search {
+        grid-area: search;
+
+        input {
+        padding: 16px 0;
+        border-radius: 40px;
+        background-image: url('../../assets/images/search.svg');
+        background-color: #F5F7FA;
+        background-repeat: no-repeat;
+        background-position: 25px center;
+        padding-left: 60px;
+        font-size: 15px;
+        line-height: 18.15px;
+        }
+
+        input::placeholder {
+            color: #8BA3CB;
+        }
+    }
+
+    &__settings {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+        grid-area: settings;
+
+        &-notification, &-settings{
+            background-color: #F5F7FA;
+            width: 50px; 
+            height: 50px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            border-radius: 50%;
+        }
+        &-notification {
+            background-image: url('../../assets/images/notification.svg');
+        }
+        &-settings {
+            background-image: url('../../assets/images/settingsMain.svg');
+        }
+
+        &-user {
+            width: 60px;
+            height: 60px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+        }
+
+    }
+}
+
+.test {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.test1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+@media (max-width: 1030px) {
+    .header {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas:
+        "menuBurger title settings"
+        "search search search";
+        justify-content: space-between;
+        padding: 25px;
+
+        &__menu {
+            display: block;
+        }
+
+        &__title {
+            display: flex;
+            justify-content: center;
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+
+        &__settings {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        &__search {
+            input {
+            width: 100%;
+            }
+        }
+        &__settings {
+            &-user {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+}
+    .header__settings-settings,  .header__settings-notification{
+        display: none;
+    }
+}
